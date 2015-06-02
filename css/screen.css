@@ -353,20 +353,68 @@ td,
 th {
   padding: 0;
 }
+.prox-light {
+  font-family: "proxima-nova", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
 body {
-  background-color: #E67067;
-  margin: 10px;
+  background-color: #e67067;
+  font-size: 16px;
 }
 .wrap {
   margin: 0;
   height: 97vh;
-  margin: 2px;
-  background-color: #ccc;
-  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
 }
 .wrap h1 {
   margin-top: 0;
 }
+.mobile-hero {
+  background: url(../src/images/posted-up-in-the-club.jpg);
+  height: 40vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+.joe {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 150px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+.mobile-hero {
+  width: 100%;
+}
 .content {
-  height: 3000px;
+  padding: 20px;
+  height: 60vh;
+}
+.content .content-wrap {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.content .content-wrap h1 {
+  color: #000000;
+  font-size: 3em;
+  font-family: "proxima-nova", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  text-align: center;
+}
+.content .content-wrap p {
+  color: #000000;
+  font-family: "proxima-nova", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  text-align: center;
 }

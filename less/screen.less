@@ -2,6 +2,7 @@
 
 @import 'base/normalize';
 @import 'base/global';
+@import 'base/mixins';
 
 // Import Components
 // @import 'components/header';
@@ -14,22 +15,70 @@
 
 
 body {
-	background-color: #E67067;
-	margin: 10px;
+	background-color: @primary;
+	// margin: 10px;
+	font-size: 16px;
 }
 
 .wrap {
 	margin: 0;
 	height: 97vh;
-	margin: 2px;
-	background-color: #ccc;
+	// margin: 2px;
 	// background: url(../src/images/posted-up-in-the-club.jpg);
-	background-size: cover;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 0% 0%;
 	h1 {
 		margin-top: 0;
 	}
 }
 
-.content {
-	height: 3000px;
+.mobile-hero {
+	background: url(../src/images/posted-up-in-the-club.jpg);
+	height: 40vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 0% 0%;
 }
+
+.joe {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	width: 150px;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+.mobile-hero {
+	width: 100%;
+}
+
+.content {
+	padding: 20px;
+	height: 60vh;
+	.content-wrap {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		h1 {
+			color: @dark;
+			font-size: 3em;
+			.prox-light;
+			text-align: center;
+		}
+		p {
+			color: @dark;
+			.prox-light;
+			font-size: 1.2em;
+			line-height: 1.5em;
+			text-align: center;
+		}
+	}
+}
+
+
+
+
+
+

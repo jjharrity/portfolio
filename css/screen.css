@@ -375,6 +375,9 @@ body {
   background-position: 0% 0%;
   position: absolute;
   width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 .mobile-hero {
   background: url(../src/images/posted-up-in-the-club.jpg);
@@ -388,11 +391,34 @@ body {
 }
 @media only screen and (min-width: 768px) {
   .desktop-hero {
-    background: url(../src/images/posted-up-in-the-club.jpg);
-    height: 97.5vh;
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%), url(../src/images/posted-up-in-the-club.jpg);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%), url(../src/images/posted-up-in-the-club.jpg);
+    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0% 0%;
+    background-position: 25% 63%;
+  }
+}
+.social {
+  position: absolute;
+  text-align: center;
+  bottom: 40px;
+  right: 0;
+  left: 0;
+}
+.social a {
+  color: #b4b4b4;
+  padding: 0px 10%;
+  font-size: 22px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.social a:hover {
+  color: #e7e7e7;
+}
+@media only screen and (min-width: 768px) {
+  .social {
+    text-align: left;
   }
 }
 .joe {
@@ -450,6 +476,8 @@ body {
   font-size: 1em;
   line-height: 1.5em;
   text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 @media only screen and (min-width: 768px) {
   .content .content-wrap p {
@@ -463,28 +491,6 @@ body {
   color: rgba(180, 180, 180, 0.5);
   text-transform: uppercase;
   letter-spacing: 5px;
-}
-.social {
-  position: absolute;
-  text-align: center;
-  bottom: 40px;
-  right: 0;
-  left: 0;
-}
-.social a {
-  color: #b4b4b4;
-  padding: 0px 40px;
-  font-size: 22px;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-}
-.social a:hover {
-  color: #e7e7e7;
-}
-@media only screen and (min-width: 768px) {
-  .social {
-    text-align: left;
-  }
 }
 .one {
   -webkit-animation-delay: .5s;

@@ -25,6 +25,9 @@ body {
 	background-position: 0% 0%;
 	position: absolute;
 	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
 }
 
 .mobile-hero {
@@ -38,13 +41,33 @@ body {
 .desktop-hero {
 	height: 60vh;
 	@media @tablet {
-		background: url(../src/images/posted-up-in-the-club.jpg);
-		height: 97.5vh;
+		background: linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 50%), url(../src/images/posted-up-in-the-club.jpg);
+		height: 100vh;
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: 0% 0%;
+		background-position: 25% 63%
 	}
 
+}
+
+.social {
+	position: absolute;	
+	text-align: center;
+	bottom: 40px;
+	right: 0;
+	left: 0;
+	a {
+		color: @gray;
+		padding: 0px 10%;
+		font-size: 22px;
+		.transition;
+		&:hover {
+			color: lighten(@gray, 20%);
+		}
+	}
+	@media @tablet {
+		text-align: left;
+	}
 }
 
 .joe {
@@ -94,6 +117,8 @@ body {
 			font-size: 1em;
 			line-height: 1.5em;
 			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 5px;
 			@media @tablet {
 				text-align: left;
 			}
@@ -107,25 +132,7 @@ body {
 	}
 }
 
-.social {
-	position: absolute;	
-	text-align: center;
-	bottom: 40px;
-	right: 0;
-	left: 0;
-	a {
-		color: @gray;
-		padding: 0px 40px;
-		font-size: 22px;
-		.transition;
-		&:hover {
-			color: lighten(@gray, 20%);
-		}
-	}
-	@media @tablet {
-		text-align: left;
-	}
-}
+
 
 
 // DELAYS
@@ -144,5 +151,7 @@ body {
 	animation-delay: 3s;
 	animation-duration: 5s;
 }
+
+
 
 

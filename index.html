@@ -48,7 +48,30 @@
 </head>
 
 <body>
+    <div class="toggle">
 
+      <div class="works">
+        <div class="closed1"></div>
+        <div class="closed2"></div>
+      </div>
+      
+      <div class="work-group">
+        <div class="item">
+          <img src="images/challenge-logo.svg" alt="chick fil a">
+        </div>
+                <div class="item">
+          <img src="images/white-logos.svg" alt="chick fil a">
+        </div>
+                <div class="item">
+          <img src="images/microsoft-logo.png" alt="chick fil a">
+        </div>
+                <div class="item">
+          <img src="images/challenge-logo.svg" alt="chick fil a">
+        </div>
+
+      </div>
+        
+    </div>
     <div class="wrap">
         <div class="visible-xs mobile-hero">
             <img class="joe" src="images/joe.svg" alt="Logo">
@@ -59,7 +82,7 @@
                 <div class="content-wrap">
                     <p class="animated fadeInUp one">UX    &middot;    UI    &middot;    Development</p>
                     <h1 class="animated fadeInUp two">Interactive Designer</h1>
-                    <h4 class="animated fadeIn three hidden-xs">Work coming soon.</h4>
+                    <h4 class="animated fadeIn three hidden-xs works">Work coming soon.</h4>
                 </div>
             </div>
             <div class="social contain">
@@ -77,6 +100,14 @@
     <script src="src/scripts/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="src/scripts/bootstrap.min.js"></script>
+    
+    <script>
+
+        $( ".works" ).click(function() {
+            $( 'body' ).toggleClass( "down" );
+        });
+    
+    </script>
 
 </body>
 

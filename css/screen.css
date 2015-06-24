@@ -367,6 +367,7 @@ html {
 }
 body {
   background-color: #3d4e5d;
+  overflow: hidden;
   margin: 0;
   font-family: "proxima-nova", sans-serif;
   font-style: normal;
@@ -380,10 +381,11 @@ h1 {
 }
 /* =24px */
 .toggle {
-  position: fixed;
+  position: absolute;
+  visibility: hidden;
   z-index: 5;
-  -webkit-transition: all 0.2s cubic-bezier(0.35, 0.1, 0.41, 1);
-          transition: all 0.2s cubic-bezier(0.35, 0.1, 0.41, 1);
+  -webkit-transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
+          transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
   -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
           transform: translateX(100%);
@@ -402,27 +404,47 @@ h1 {
   letter-spacing: 10px;
   font-size: .8em;
 }
-.toggle .closed1 {
-  height: 2px;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-  width: 50px;
-  background-color: #fff;
+.toggle .works {
+  -webkit-transform: translateY(-50px);
+      -ms-transform: translateY(-50px);
+          transform: translateY(-50px);
+  opacity: 0;
+  -webkit-transform: opacity 3s ease;
+      -ms-transform: opacity 3s ease;
+          transform: opacity 3s ease;
+  -webkit-transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
+          transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
+  height: 50px;
+  position: absolute;
+  background-color: rgba(61, 78, 93, 0.2);
+  border-bottom: 1px solid #e67067;
+  width: 100%;
 }
-.toggle .closed2 {
-  height: 2px;
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  width: 50px;
-  background-color: #fff;
+.toggle .works p {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 18px;
 }
 .down .toggle {
   -webkit-transform: translateX(0px);
       -ms-transform: translateX(0px);
           transform: translateX(0px);
   background-color: rgba(0, 0, 0, 0.8);
+  background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
+  visibility: visible;
+}
+.down .toggle .works {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition-delay: 2s;
+          transition-delay: 2s;
+}
+.down .wrap {
+  opacity: .2;
 }
 .work-group {
   display: -webkit-box;
@@ -452,10 +474,16 @@ h1 {
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
 }
+.work-group h2 {
+  font-size: 1.4rem;
+  color: #e67067;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
 .wrap {
   border: 10px solid #3d4e5d;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
+          transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
   height: 100vh;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -465,6 +493,9 @@ h1 {
   overflow: hidden;
   padding: 0;
   margin: 0;
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
 }
 .mobile-hero {
   background: url(../src/images/posted-up-in-the-club.jpg);
@@ -575,9 +606,19 @@ h1 {
   font-family: "proxima-nova", sans-serif;
   font-style: normal;
   font-weight: 300;
-  color: rgba(180, 180, 180, 0.5);
+  color: #e67067;
   text-transform: uppercase;
   letter-spacing: 5px;
+  border: 1px solid #e67067;
+  display: inline-block;
+  padding: 12px 35px;
+  border-radius: 3px;
+  box-shadow: 0px 2px 0px #e67067;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.content .content-wrap h4:hover {
+  box-shadow: 0px 4px 0px #e67067;
 }
 .works:hover {
   cursor: pointer;

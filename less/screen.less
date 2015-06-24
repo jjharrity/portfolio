@@ -18,6 +18,7 @@ html { font-size: 62.5%; }
 
 body {
 	background-color: @primary;
+	overflow: hidden;
 	margin: 0;
 	.prox-light;
 	font-size: 14px;
@@ -27,9 +28,10 @@ body {
 h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
 .toggle {
-	position: fixed;
+	position: absolute;
+	visibility: hidden;
 	z-index: 5;
-	transition: all .2s cubic-bezier(.35,.1,.41,1);
+	transition: all 1s cubic-bezier(.1,1.01,.5,1);
 	transform: translateX(100%);
 	display: table;
 	table-layout: fixed;
@@ -45,28 +47,55 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 		letter-spacing: 10px;
 		font-size: .8em;
 	}
-	.closed1 {
-		height: 2px;
-		transform: rotate(45deg);
-		width: 50px;
-		background-color: #fff;
-	}
-	.closed2 {
-		height: 2px;
-		transform: rotate(-45deg);
-		width: 50px;
-		background-color: #fff;
+	.works {
+		// position: relative;
+		// top: 50px;
+		// right: -30px;
+		transform: translateY(-50px);
+		opacity: 0;
+		transform: opacity 3s ease;
+
+		transition: all 1s cubic-bezier(.1,1.01,.5,1);
+		height: 50px;
+		position: absolute;
+		background-color: fade(@primary, 20%);
+		border-bottom: 1px solid @orange;
+		width: 100%;
+		p {
+			position: absolute;
+			right: 0;
+			left: 0;
+			top: 18px;
+		}
+		// .closed1 {
+		// 	height: 2px;
+		// 	transform: rotate(45deg);
+		// 	width: 50px;
+		// 	background-color: #fff;
+		// }
+		// .closed2 {
+		// 	height: 2px;
+		// 	transform: rotate(-45deg);
+		// 	width: 50px;
+		// 	background-color: #fff;
+		// }
 	}
 }
 
-.down .toggle{
+.down .toggle {
 	transform: translateX(0px);
 	background-color: rgba(0, 0, 0, 0.8);
+	background: linear-gradient(to left, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	visibility: visible;
+	.works {
+		opacity: 1;
+		transform: translateY(0px);
+		transition-delay: 2s;
+	}
 }
-// .down .wrap{
-// 	transform: translateX(-100%);
-// 	background-color: rgba(0, 0, 0, 0.8);
-// }
+.down .wrap{
+	opacity: .2;
+}
 
 .work-group {
 	display: flex; 
@@ -84,12 +113,17 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 			filter: grayscale(100%);
 		}
 	}
-
+	h2 {
+		font-size: 1.4rem;
+		color: @orange;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+	}
 }
 
 .wrap {
 	border: 10px solid @primary;
-	.transition;
+	transition: all 1s cubic-bezier(.1,1.01,.5,1);
 	height: 100vh;
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -99,6 +133,7 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	overflow: hidden;
 	padding: 0;
 	margin: 0;
+	transform: translateX(0%);
 }
 
 .mobile-hero {
@@ -196,9 +231,19 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 		}
 		h4 {
 			.prox-light;
-			color: fade(@gray, 50%);
+			color: @orange;
 			text-transform: uppercase;
 			letter-spacing: 5px;
+
+			border: 1px solid @orange;
+			display: inline-block;
+			padding: 12px 35px;
+			border-radius: 3px;
+			box-shadow: 0px 2px 0px @orange;
+			.transition;
+			&:hover {
+				box-shadow: 0px 4px 0px @orange;
+			}
 		}
 	}
 }

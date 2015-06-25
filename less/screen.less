@@ -17,7 +17,7 @@ html { font-size: 62.5%; }
 
 
 body {
-	background-color: @primary;
+	background-color: rgba(0, 0, 0, 0.9);
 	overflow: hidden;
 	margin: 0;
 	.prox-light;
@@ -58,14 +58,17 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 		transition: all 1s cubic-bezier(.1,1.01,.5,1);
 		height: 50px;
 		position: absolute;
-		background-color: fade(@primary, 20%);
-		border-bottom: 1px solid @orange;
+		// background-color: fade(@primary, 20%);
+		// border-bottom: 1px solid @orange;
 		width: 100%;
 		p {
 			position: absolute;
 			right: 0;
 			left: 0;
 			top: 18px;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 		// .closed1 {
 		// 	height: 2px;
@@ -146,6 +149,7 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
 .desktop-hero {
 	height: 60vh;
+	background-color: @primary;
 	@media @tablet {
 		background: linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 50%), url(../src/images/posted-up-in-the-club.jpg);
 		height: 100vh;
@@ -153,7 +157,6 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 		background-repeat: no-repeat;
 		background-position: 25% 63%
 	}
-
 }
 
 .social {
@@ -162,13 +165,22 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	bottom: 40px;
 	right: 0;
 	left: 0;
+
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	@media @tablet {
+		justify-content: flex-start;
+	}
 	a {
 		color: @gray;
-		padding: 0px 10%;
 		font-size: 22px;
 		.transition;
+		@media @tablet {
+			padding-right: 20%;
+		}
 		&:hover {
-			color: lighten(@gray, 20%);
+			color: lighten(@gray, 80%);
 		}
 	}
 	@media @tablet {
@@ -197,7 +209,7 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	}
 }
 .content {
-	padding: 20px;
+	// padding: 20px;
 	position: relative;
 	top: 45%;
 	transform: translateY(-50%);
@@ -239,10 +251,11 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 			display: inline-block;
 			padding: 12px 35px;
 			border-radius: 3px;
-			box-shadow: 0px 2px 0px @orange;
+			// box-shadow: 0px 2px 0px @orange;
 			.transition;
 			&:hover {
-				box-shadow: 0px 4px 0px @orange;
+				// box-shadow: 0px 4px 0px @orange;
+				background-color: fade(@orange, 10%);
 			}
 		}
 	}

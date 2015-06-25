@@ -366,7 +366,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  background-color: #3d4e5d;
+  background-color: rgba(0, 0, 0, 0.9);
   overflow: hidden;
   margin: 0;
   font-family: "proxima-nova", sans-serif;
@@ -416,8 +416,6 @@ h1 {
           transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
   height: 50px;
   position: absolute;
-  background-color: rgba(61, 78, 93, 0.2);
-  border-bottom: 1px solid #e67067;
   width: 100%;
 }
 .toggle .works p {
@@ -425,6 +423,9 @@ h1 {
   right: 0;
   left: 0;
   top: 18px;
+}
+.toggle .works p:hover {
+  cursor: pointer;
 }
 .down .toggle {
   -webkit-transform: translateX(0px);
@@ -506,6 +507,7 @@ h1 {
 }
 .desktop-hero {
   height: 60vh;
+  background-color: #3d4e5d;
 }
 @media only screen and (min-width: 768px) {
   .desktop-hero {
@@ -523,16 +525,38 @@ h1 {
   bottom: 40px;
   right: 0;
   left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+}
+@media only screen and (min-width: 768px) {
+  .social {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
 }
 .social a {
   color: #b4b4b4;
-  padding: 0px 10%;
   font-size: 22px;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+@media only screen and (min-width: 768px) {
+  .social a {
+    padding-right: 20%;
+  }
+}
 .social a:hover {
-  color: #e7e7e7;
+  color: #ffffff;
 }
 @media only screen and (min-width: 768px) {
   .social {
@@ -560,7 +584,6 @@ h1 {
   }
 }
 .content {
-  padding: 20px;
   position: relative;
   top: 45%;
   -webkit-transform: translateY(-50%);
@@ -613,12 +636,11 @@ h1 {
   display: inline-block;
   padding: 12px 35px;
   border-radius: 3px;
-  box-shadow: 0px 2px 0px #e67067;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 .content .content-wrap h4:hover {
-  box-shadow: 0px 4px 0px #e67067;
+  background-color: rgba(230, 112, 103, 0.1);
 }
 .works:hover {
   cursor: pointer;

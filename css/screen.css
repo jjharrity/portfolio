@@ -522,7 +522,7 @@ h1 {
 .social {
   position: absolute;
   text-align: center;
-  bottom: 40px;
+  bottom: 20px;
   right: 0;
   left: 0;
   display: -webkit-box;

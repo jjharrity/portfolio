@@ -94,9 +94,16 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	width: 100%;
 	.item {
 		width: 50%;
+		.transtion;
 		img {
 			width: 200px;
-			filter: grayscale(100%);
+			opacity: .5;
+
+			&:hover{
+				cursor: pointer;
+				opacity: 1;
+			}
+
 		}
 	}
 	h2 {
@@ -134,7 +141,7 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	height: 60vh;
 	background-color: @primary;
 	@media @tablet {
-		background: linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 50%), url(../src/images/posted-up-in-the-club.jpg);
+		background: linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 50%), url(../images/dope.jpg);
 		height: 100vh;
 		background-size: cover;
 		background-repeat: no-repeat;

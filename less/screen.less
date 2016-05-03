@@ -18,7 +18,7 @@ html { font-size: 62.5%; }
 
 body {
 	background-color: rgba(0, 0, 0, 0.9);
-	overflow: hidden;
+	// overflow: hidden;
 	margin: 0;
 	.prox-light;
 	font-size: 14px;
@@ -29,29 +29,24 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
 .toggle {
 	position: absolute;
-	visibility: hidden;
 	z-index: 5;
 	transition: all 1s cubic-bezier(.1,1.01,.5,1);
-	transform: translateX(100%);
-	display: table;
-	table-layout: fixed;
+	opacity: 0;
+	visibility: hidden;
 	text-align: center;
 	width: 100%;
 	height: 100%;
 	right: 0;
 	p {
-		display: table-cell;
-		vertical-align: middle;
 		color: @orange;
 		text-transform: uppercase;
 		letter-spacing: 10px;
 		font-size: .8em;
 	}
 	.works {
-		transform: translateY(-50px);
 		opacity: 0;
 		transform: opacity 3s ease;
-
+		z-index: 20;
 		transition: all 1s cubic-bezier(.1,1.01,.5,1);
 		height: 50px;
 		position: absolute;
@@ -68,10 +63,26 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	}
 }
 
+.close-work {
+	padding: 20px 0px;
+    background-color: @orange;
+
+    p {
+    	color: #fff;
+    	transition: all .3s ease-in-out;
+    }
+    &:hover {
+    	cursor: pointer;
+    	p {
+    		letter-spacing: 5px;
+    	}
+    }
+}
+
 .down .toggle {
-	transform: translateX(0px);
 	background-color: rgba(0, 0, 0, 0.8);
-	background: linear-gradient(to left, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	// background: linear-gradient(to left, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.1) 100%);
+	opacity: 1;
 	visibility: visible;
 	.works {
 		opacity: 1;
@@ -79,39 +90,59 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 		transition-delay: 2s;
 	}
 }
-.down .wrap{
+
+.down .wrap {
 	opacity: .2;
 }
 
+
 .work-group {
-	display: flex; 
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-items: center;
 	margin: 0 auto;
 	height: 100%;
 	position: fixed;
+	overflow-y: scroll;
 	width: 100%;
-	.item {
-		width: 50%;
-		.transtion;
-		img {
-			width: 200px;
-			opacity: .5;
-
-			&:hover{
-				cursor: pointer;
-				opacity: 1;
+	.work-items {
+		// padding-left: 30px;
+		margin: 0 auto;
+		// max-width: 800px;
+		display: flex;
+	    flex-direction: column;
+	    a.item {
+			padding: 25px 0px;
+			padding-left: 30px;
+			width: 100%;
+			color: #eee;
+			.transition;
+			text-decoration: none;
+			text-align: left;
+			h3 {
+				font-size: 2rem;
+				font-weight: 700;
+				letter-spacing: .2rem;
+				text-transform: uppercase;
 			}
-
+			img {
+				.transition;
+				display: block;
+				// display: none;
+				width: 50px;
+				margin-bottom: 10px;
+				filter: grayscale(100%);
+			}
+			&:hover {
+				cursor: pointer!important;
+				color: @orange;
+				background-color: rgba(0, 0, 0, 0.5);
+				img {
+					filter: grayscale(0%);
+				}
+			}
 		}
 	}
-	h2 {
-		font-size: 1.4rem;
-		color: @orange;
-		text-transform: uppercase;
-		letter-spacing: 5px;
-	}
+
+
+
 }
 
 .wrap {
@@ -141,7 +172,7 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 	height: 60vh;
 	background-color: @primary;
 	@media @tablet {
-		background: linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 50%), url(../images/dope.jpg);
+		background: linear-gradient(to right, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.1) 50%), url(../images/posted-up-in-the-club.jpg);
 		height: 100vh;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -265,7 +296,7 @@ h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 }
 
 .three {
-	animation-delay: 3s;
+	animation-delay: 1.3s;
 	animation-duration: 5s;
 }
 

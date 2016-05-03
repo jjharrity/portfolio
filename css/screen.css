@@ -353,10 +353,23 @@ td,
 th {
   padding: 0;
 }
+a {
+  cursor: pointer;
+}
 .prox-light {
   font-family: "proxima-nova", sans-serif;
   font-style: normal;
   font-weight: 300;
+}
+.prox-semi {
+  font-family: "proxima-nova", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+.prox-bold {
+  font-family: "proxima-nova", sans-serif;
+  font-style: normal;
+  font-weight: 700;
 }
 .transition {
   -webkit-transition: all 0.4s ease;
@@ -367,7 +380,6 @@ html {
 }
 body {
   background-color: rgba(0, 0, 0, 0.9);
-  overflow: hidden;
   margin: 0;
   font-family: "proxima-nova", sans-serif;
   font-style: normal;
@@ -382,36 +394,28 @@ h1 {
 /* =24px */
 .toggle {
   position: absolute;
-  visibility: hidden;
   z-index: 5;
   -webkit-transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
           transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
-  -webkit-transform: translateX(100%);
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
-  display: table;
-  table-layout: fixed;
+  opacity: 0;
+  visibility: hidden;
   text-align: center;
   width: 100%;
   height: 100%;
   right: 0;
 }
 .toggle p {
-  display: table-cell;
-  vertical-align: middle;
   color: #e67067;
   text-transform: uppercase;
   letter-spacing: 10px;
   font-size: .8em;
 }
 .toggle .works {
-  -webkit-transform: translateY(-50px);
-      -ms-transform: translateY(-50px);
-          transform: translateY(-50px);
   opacity: 0;
   -webkit-transform: opacity 3s ease;
       -ms-transform: opacity 3s ease;
           transform: opacity 3s ease;
+  z-index: 20;
   -webkit-transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
           transition: all 1s cubic-bezier(0.1, 1.01, 0.5, 1);
   height: 50px;
@@ -427,13 +431,24 @@ h1 {
 .toggle .works p:hover {
   cursor: pointer;
 }
+.close-work {
+  padding: 20px 0px;
+  background-color: #e67067;
+}
+.close-work p {
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+}
+.close-work:hover {
+  cursor: pointer;
+}
+.close-work:hover p {
+  letter-spacing: 5px;
+}
 .down .toggle {
-  -webkit-transform: translateX(0px);
-      -ms-transform: translateX(0px);
-          transform: translateX(0px);
   background-color: rgba(0, 0, 0, 0.8);
-  background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
+  opacity: 1;
   visibility: visible;
 }
 .down .toggle .works {
@@ -448,41 +463,57 @@ h1 {
   opacity: .2;
 }
 .work-group {
+  margin: 0 auto;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  width: 100%;
+}
+.work-group .work-items {
+  margin: 0 auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 auto;
-  height: 100%;
-  position: fixed;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.work-group .work-items a.item {
+  padding: 25px 0px;
+  padding-left: 30px;
   width: 100%;
+  color: #eee;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  text-align: left;
 }
-.work-group .item {
-  width: 50%;
-}
-.work-group .item img {
-  width: 200px;
-  opacity: .5;
-}
-.work-group .item img:hover {
-  cursor: pointer;
-  opacity: 1;
-}
-.work-group h2 {
-  font-size: 1.4rem;
-  color: #e67067;
+.work-group .work-items a.item h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: .2rem;
   text-transform: uppercase;
-  letter-spacing: 5px;
+}
+.work-group .work-items a.item img {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  display: block;
+  width: 50px;
+  margin-bottom: 10px;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+.work-group .work-items a.item:hover {
+  cursor: pointer!important;
+  color: #e67067;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.work-group .work-items a.item:hover img {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
 }
 .wrap {
   border: 10px solid #3d4e5d;
@@ -514,8 +545,8 @@ h1 {
 }
 @media only screen and (min-width: 768px) {
   .desktop-hero {
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%), url(../images/dope.jpg);
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%), url(../images/dope.jpg);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%), url(../images/posted-up-in-the-club.jpg);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.1) 50%), url(../images/posted-up-in-the-club.jpg);
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -661,8 +692,8 @@ h1 {
           animation-duration: 2s;
 }
 .three {
-  -webkit-animation-delay: 3s;
-          animation-delay: 3s;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
   -webkit-animation-duration: 5s;
           animation-duration: 5s;
 }

@@ -52,27 +52,29 @@
 
     <div class="toggle hidden-xs">
 
-      <div class="works">
-      <p>Close</p>
-        <div class="closed1"></div>
-        <div class="closed2"></div>
+      <div class="close-work">
+        <p class="closeit">Close</p>
       </div>
       
       <div class="work-group">
-        <h2>Coming Soon.</h2>
-<!--         <div class="item">
-          <img src="images/nike.png" alt="chick fil a">
+        <div class="work-items">
+            
+            <a class="item" target="_blank" href="http://www.peachbowl.com">
+                <img src="images/cfapb-logo.png" alt="logo"><h3>The Peachbowl</h3></a>
+            <a class="item" target="_blank" href="http://www.wildinstinctoutdoors.com/"><img src="images/wio.png" alt="logo"><h3>Wild Instinct Outdoors</h3></a>            
+            <a class="item" target="_blank" href="http://www.chick-fil-apeachbowlchallenge.com/"><img src="images/challenge-logo.png" alt="logo"><h3>Peachbowl Challenge</h3></a>
+            <a class="item" target="_blank" href="http://www.thedoddtrophy.com/"><img src="images/dodd-logo.png" alt="logo"><h3>Bobby Dodd Trophy</h3></a>
+            <a class="item" target="_blank" href="http://www.chick-fil-akickoffgame.com/"><img src="images/kickoff-logo.png" alt="logo"><h3>Chick-fil-a Kickoff Classic</h3></a>
+            <a class="item" target="_blank" href="https://352inc.com/"><img src="images/logo352-blue.svg" alt="logo"><h3>352 Inc.</h3></a>
+            <a class="item" target="_blank" href="https://flexdrive.com/"><img src="images/flexdrive.png" alt="logo"><h3>Flexdrive</h3></a>
+            <a class="item" target="_blank" href="http://www.readrightfromthestart.org/"><img src="images/rollins-logo.png" alt="logo"><h3>Read Right From the Start</h3></a>
+            <a class="item" target="_blank" href="http://kenapp.io/"><img src="images/ken-letter-logo.svg" alt="logo"><h3>Ken App</h3></a>
+            <a class="item" target="_blank" href="http://www.getteamfit.com/"><img src="images/teamfit.png" alt="logo"><h3>Team Fit</h3></a>
+            <a class="item" target="_blank" href="http://horsetheapp.com/"><img src="images/horse.png" alt="logo"><h3>Horse The App</h3></a>
+            <a class="item" target="_blank" href="http://www.2truthsapp.com/"><img src="images/2truths.png" alt="logo"><h3>2 Truths</h3></a>
+            
+            
         </div>
-        <div class="item">
-          <img src="images/rvca.png" alt="chick fil a">
-        </div>
-        <div class="item">
-          <img src="images/rvca.png" alt="chick fil a">
-        </div>        
-        <div class="item">
-          <img src="images/rvca.png" alt="chick fil a">
-        </div> -->
-
       </div>
         
     </div>
@@ -86,7 +88,7 @@
                 <div class="content-wrap">
                     <p class="animated fadeInUp one">UX    &middot;    UI    &middot;    Code</p>
                     <h1 class="animated fadeInUp two">Interactive Designer</h1>
-                    <h4 class="animated fadeIn three hidden-xs works">Work</h4>
+                    <h4 class="animated fadeInUp three hidden-xs works">Work</h4>
                 </div>
             </div>
             <div class="social contain">
@@ -107,10 +109,15 @@
     
     <script>
 
-        $( ".works, .toggle" ).click(function() {
+        $( ".works, .toggle, .closeit" ).click(function() {
+            $( 'body' ).toggleClass( "down" );
+        });
+
+        $( ".closeit" ).click(function() {
             $( 'body' ).toggleClass( "down" );
         });
     
+
     </script>
 
 </body>
